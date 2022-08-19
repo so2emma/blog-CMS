@@ -48,7 +48,7 @@ class PostsController extends Controller
             "description" => $request->description,
             "image" => "storage/".$image,
             "content" => $request->content,
-            // "published_at" =>
+            "published_at" => $request->published_at,
         ]);
         // flash message
         session()->flash("success", "Post created Successfullly");

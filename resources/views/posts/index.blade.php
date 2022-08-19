@@ -19,11 +19,11 @@
                 @foreach ($posts as $post)
                     <tr>
 
-                        <td><img src="{{ $post->image }}" class="img-fluid" width="100px" alt=""></td>
+                        <td><img src="{{ asset("storage/".$post->image) }}" class="img-fluid" width="100px" alt=""></td>
                         <td>{{ $post->title }}</td>
                         <td>
                             @if (!$post->trashed())
-                            <a href="" class="btn btn-info">Edit</a>
+                            <a href="{{ route("posts.edit", $post->id) }}" class="btn btn-info">Edit</a>
                             @endif
                         </td>
                         <td>
@@ -33,7 +33,6 @@
                                 <button type="submit" href="" class="btn btn-danger">
                                     {{ $post->trashed() ? "Delete" : "Trash" }}
                                 </button>
-
                             </form>
                         </td>
                     </tr>

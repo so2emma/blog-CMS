@@ -12,11 +12,14 @@
             <table class="table">
                 <tr>
                     <th>Name</th>
-                    <th></th>
+                    <th>Posts Count</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 @foreach ($categories as $category)
                     <tr>
                         <td>{{ $category->name }}</td>
+                        <td>{{ $category->posts->count() }}</td>
                         <td><a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info">Edit</a></td>
                         <td>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{ $category->id }}">

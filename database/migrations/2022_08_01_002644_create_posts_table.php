@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text("description");
             $table->text("content");
             $table->string("image");
+            $table->integer("category_id");
             $table->timestamp("published_at")->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
     }

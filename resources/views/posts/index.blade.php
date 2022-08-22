@@ -28,7 +28,7 @@
                                     {{ $post->category->name }}
                                 </a></td>
                             <td>
-                                @if (!$post->trashed())
+                                @if ($post->trashed())
                                     <form action="{{ route('restore-post', $post->id) }}" method="post">
                                         @csrf
                                         @method('PUT')

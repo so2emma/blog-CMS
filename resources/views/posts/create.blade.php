@@ -6,7 +6,7 @@
             {{ isset($post) ? 'Edit Post' : 'Create Post' }}
         </div>
         <div class="card-body">
-            @include("partials.errors")
+            @include('partials.errors')
             <form action="{{ isset($post) ? route('posts.update', $post->id) : route('posts.store') }}" method="post"
                 enctype="multipart/form-data">
                 @csrf
@@ -51,12 +51,16 @@
                     <select name="category" id="category" class="form-control">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
-                                @if (isset($post)) @if ($category->id == $post->category_id) selected @endif>
-                        @endif
-                        {{ $category->name }}</option>
+                                @if (isset($post)) @if ($category->id == $post->category_id) selected @endif @endif>
+                                {{ $category->name }}
+                            </option>
+
                         @endforeach
                     </select>
                 </div>
+
+
+
                 <div class="mb-3">
                     <button type="submit" class="btn btn-success">
                         {{ isset($post) ? 'Update Post' : 'Create Post' }}
